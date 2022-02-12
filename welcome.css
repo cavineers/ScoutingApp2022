@@ -1,7 +1,7 @@
 .div{
     position: relative;
     border: 10px solid black;
-    width: 2000px;
+    width: 10px;
     height: 250px;
  }
 
@@ -15,3 +15,22 @@
      height: 100px;
      margin-left: -25px;
  }
+ 
+ select {
+     font-size: 20px;
+     position: relative;
+     display: inline-block;
+     border: 10px solid red;
+     width: 200px;
+     height: 100px;
+     left: 36.7%;
+ }
+
+ h3 {
+     position:relative;
+     left: 36.35%;
+     bottom: -10px;
+     font-size: 25px;
+ }
+
+ 
