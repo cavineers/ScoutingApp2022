@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+  
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>scouting</title>
+</head>
+
+<body style="text-align: center;">
+    <h1 style="color: #791010">
+        Main Page
+    </h1>
+
+    <h4 style="color: #791010">
+        Pick up
+    </h4>
+  
+    <button id="up">Cargo button up</button>
+  
+    <button id="down">Cargo button down</button>
+
+    <p>
+         <span 
+        id="cargo">0</span> Cargo count:
+    </p>
+  
+    <script type="text/javascript">
+        var count = 0;
+        var up = document.getElementById("up");
+        var carg = document.getElementById("cargo");
+  
+        up.onclick = function () {
+            count++;
+            carg.innerHTML = count;
+        }
+    </script>
+
+    <script type="text/javascript">
+        var count = 0;
+        var down = document.getElementById("down");
+        var carg = document.getElementById("cargo");
+
+        down.onclick = function () {
+            count--;
+            carg.innerHTML = count;
+        }
+    </script>
+
+</body>
+</html>
