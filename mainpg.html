@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+  
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="mainpg.css"><!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+    <title>scouting</title>
+</head>
+<link rel="stylesheet" href="mainpg.css">
+<body style="background-color:black;"></body>
+<link rel="stylesheet" href="mainpg.css">
+    <Font COLOR="red"> 
+    <h1 style="text-align:center">Main Page</h1>
+
+    <h2 style="text-align:center">Pick Up</h2>
+  
+    <button id="up">Cargo button up</button>
+  
+    <button id="down">Cargo button down</button>
+
+    <p>
+         <span 
+        id="cargo">0</span> Cargo count:
+    </p>
+  
+    <script type="text/javascript">
+        var count = 0;
+        var up = document.getElementById("up");
+        var carg = document.getElementById("cargo");
+  
+        up.onclick = function () {
+            count++;
+            carg.innerHTML = count;
+        }
+    </script>
+
+    <script type="text/javascript">
+        var count = 0;
+        var down = document.getElementById("down");
+        var carg = document.getElementById("cargo");
+
+        down.onclick = function () {
+            count--;
+            carg.innerHTML = count;
+        }
+    </script>
+
+</body>
+</html>
