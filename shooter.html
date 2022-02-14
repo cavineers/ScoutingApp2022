@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+    
+<body style="text-align: center;">
+    <h4 style="color: #791010">
+        Shooter
+    </h4>
+    <button id="top">Shot top</button>
+  
+    <button id="bottom">Shot bottom</button>
+
+    <button id="miss">Miss</button>
+  
+    <button id="drop">Drop</button>
+
+    <p>
+         <span 
+        id="topper">0</span> Shot top:
+
+         <span 
+        id="bottomer">0</span> Shot bottom:
+
+         <span 
+        id="misser">0</span> Miss:
+
+         <span 
+        id="dropper">0</span> Drop:
+    </p>
+
+    <script type="text/javascript">
+        var count = 0;
+        var top = document1.getElementById("top");
+        var topper = document1.getElementById("topper");
+  
+        top.onclick = function () {
+            count++;
+            topper.innerHTML = count;
+        }
+    </script>
+
+    <script type="text/javascript">
+        var count = 0;
+        var bottem = document1.getElementById("bottom");
+        var bottomer = document1.getElementById("bottomer");
+
+        bottem.onclick = function () {
+            count++;
+            bottomer.innerHTML = count;
+        }
+    </script>
+
+    <script type="text/javascript">
+        var count = 0;
+        var miss = document1.getElementById("miss");
+        var misser = document1.getElementById("misser");
+
+        miss.onclick = function () {
+            count++;
+            misser.innerHTML = count;
+        }
+    </script>
+
+    <script type="text/javascript">
+        var count = 0;
+        var drop = document1.getElementById("drop");
+        var dropper = document1.getElementById("dropper");
+
+        drop.onclick = function () {
+            count++;
+            dropper.innerHTML = count;
+        }
+    </script>
+
+</body>
+</html>
