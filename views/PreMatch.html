@@ -83,8 +83,6 @@
     <option value="" data-placeholder>Select Number of Starting Cargo</option>
     <option value="0">0</option>
     <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
 </select>
     <input type="submit">
 <script>
@@ -94,6 +92,19 @@ function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
+function myFunction() {
+  var a = document.getElementById("Match Number").value;
+  console.log(a);
+} 
+function myFunction() {
+  var a = document.getElementById("Team Number").value;
+  console.log(a);
+}
+
+function myFunction() {
+  var a = document.getElementById("Starting Cargo").value;
+  console.log(a);
+}
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
