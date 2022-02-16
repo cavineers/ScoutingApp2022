@@ -1,11 +1,11 @@
 const express = require("express");
 const { google } = require("googleapis");
-const path = require('path');
 
 const app = express();
 app.set("view engine", "ejs");
 app.set('views', path.join(__dirname, '../', 'ScoutingApp2022', 'views'));
 app.use(express.urlencoded({ extended: true }));
+const path = require('path');
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -18,7 +18,7 @@ app.post("/", async (req, res) => {
     keyFile: "credentials.json",
     scopes: "https://www.googleapis.com/auth/spreadsheets",
   });
-
+ 
   // Create client instance for auth
   const client = await auth.getClient();
 
