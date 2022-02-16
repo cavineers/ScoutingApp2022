@@ -2,6 +2,7 @@
     box-sizing: content-box;
     float: left;  
     margin: 25px;
+    box-sizing: content-box;  
     width: 300px;
     height: 350px;
     padding: 30px;  
@@ -10,13 +11,18 @@
 
 #Box2{
   box-sizing: content-box;
+
   float: right;
   margin: 25px;
+  position: relative;
+  left: 550px;
+  bottom: 450px;
   width: 300px;
   height: 350px;
   padding: 30px;  
   border: 10px solid red;
 }
+
 
 #Comments{
     min-width: 100%;
@@ -34,3 +40,56 @@
     background-color: rgb(0, 0, 0);
   }
   
+=======
+  div.content {
+    margin-left: 150px;
+    padding: 1px 16px;
+    height: 1000px;
+    background-color: rgb(0, 0, 0);
+  }
+
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    background-color: rgb(56, 56, 56);
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: rgb(255, 255, 255);
+    background-color: rgb(56, 56, 56);
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #ff0000;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: rgb(255, 217, 0);
+    color: rgb(0, 0, 0);
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
