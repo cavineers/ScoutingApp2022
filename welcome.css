@@ -5,32 +5,33 @@
     height: 250px;
  }
 
+#Dropdown{
+    position: fixed;
+    left: 35%;
+}
+
  .button {
-     font-size: xx-large;
-     border: 10px solid red;
-     position: fixed;
-     bottom: 10px;
-     left: 88%;
-     width: 200px;
-     height: 100px;
-     margin-left: -25px;
+    font-size: xx-large;
+    border: 10px solid red;
+    position: fixed;
+    bottom: 10px;
+    left: 80%;
+    width: 200px;
+    height: 100px;
+    margin: 25px;
  }
  
  select {
-     font-size: 20px;
-     position: relative;
-     display: inline-block;
-     border: 10px solid red;
-     width: 200px;
-     height: 100px;
-     left: 36.7%;
+    font-size: 20px;
+    border: 10px solid red;
+    width: 200px;
+    height: 100px;
  }
 
  h3 {
-     position:relative;
-     left: 36.35%;
-     bottom: -10px;
-     font-size: 25px;
+    position:relative;
+    bottom: -10px;
+    font-size: 25px;
  }
 
  
