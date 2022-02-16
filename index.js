@@ -1,11 +1,13 @@
 const express = require("express");
 const { google } = require("googleapis");
 
+const path = require('path');
+
 const app = express();
 app.set("view engine", "ejs");
-app.set('views', path.join(__dirname, '../', 'ScoutingApp2022', 'views'));
+app.set('index', path.join(__dirname, '../', 'SoutingApp2022'));
+//app.use(express.static(path.join(__dirname)));
 app.use(express.urlencoded({ extended: true }));
-const path = require('path');
 
 app.get("/", (req, res) => {
   res.render("index");
