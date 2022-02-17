@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="Css/pitScouting.css" />
+    <title>Pit Scouting</title>
+</head>
+
+<body>
+    <div class="navBar">
+        <div style="display: flex; margin-top: 10px;">
+            <button><a style="text-decoration: none; color: black;" href="index.html">Back</a></button>
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <input type="text" id="teamNum" class="teamNum" placeholder="Write Team #">
+    <div class="grid">
+        <h1>Important things to ask when pit scouting a team:</h1>
+        <ul>
+            <li>-Type of wheels (and where)/treads</li>
+            <li> -What does the bot use to climb with (rope, arm, etc)</li>
+            <li> -How accurate or dangerous is their climber (Do they swing around via rope or are they solid from an arm) </li>
+            <li>-Weight of bot</li>
+        </ul>
+        <select id="wheelCount" name="wheelCount">
+            <option value="" data-placeholder>Select Number of wheels on the bot</option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+            <option value="10">10</option>
+        </select>
+        <select id="PCholdCount" name="PCholdCount">
+            <option value="" data-placeholder>How many power cells they can hold?</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <textarea rows="9" class="pitcom" id="pitcom" placeholder="Write comments about team"></textarea>
+        <br>
+        <h1>More Questions (if their answer is more complicated than yes or no then put it in the comments)</h1>
+        <br><br><br><br><br><br><br><br>
+        <div class="boat">
+            <div class="check">
+                <p>Where can the bot fire the Power Cells?</p>
+                <p><input type="checkbox" name="Inner" id="inner">Inner Port</p>
+                <p><input type="checkbox" name="Outer" id="outer">Outer Port</p>
+                <p><input type="checkbox" name="Lower" id="lower">Lower Port</p>
+            </div>
+            <div>
+                <p>Can they do trench Run?</p>
+                <input type="radio" name="trench" id="trenchY" value="Yes">Yes
+                <input type="radio" name="trench" id="trenchN" value="No">No
+            </div>
+            <div>
+                <p>Can they do the control panel properly?</p>
+                <input type="radio" name="control" id="controlY" value="Yes">Yes
+                <input type="radio" name="control" id="controlN" value="No">No
+            </div>
+            <div>
+                <p>Can they shoot in autonomous?</p>
+                <input type="radio" name="autoshoot" id="autoshootY" value="Yes">Yes
+                <input type="radio" name="autoshoot" id="autoshootN" value="No">No
+            </div>
+            <div>
+                <p>Can they navigate in autonomous?</p>
+                <input type="radio" name="autonav" id="autonavY" value="Yes">Yes
+                <input type="radio" name="autonav" id="autonavN" value="No">No
+            </div>
+            <div>
+                <p>Can they get over the boundaries? (rails)</p>
+                <input type="radio" name="bound" id="boundY" value="Yes">Yes
+                <input type="radio" name="bound" id="boundN" value="No">No
+            </div>
+            <div>
+                <p>Can they climb?</p>
+                <input type="radio" name="climb" id="climbY" value="Yes">Yes
+                <input type="radio" name="climb" id="climbN" value="No">No
+            </div>
+            <div>
+                <p>Can they adjust on climb bar?</p>
+                <input type="radio" name="adjust" id="adjustY" value="Yes">Yes
+                <input type="radio" name="adjust" id="adjustN" value="No">No
+            </div>
+            <br><br><br><br>
+            <button style="cursor: pointer;" class="submit" id="submits" onclick="submit()">Submit</button>
+        </div>
+    </div>
+    <script>
+        function submit() {
+            var trench = false;
+            var trenchYN = "";
+            var control = false;
+            var controlYN = "";
+            var autoshoot = false;
+            var autoshootYN = "";
+            var autonav = false;
+            var autonavYN = "";
+            var bound = false;
+            var boundYN = "";
+            var climb = false;
+            var climbYN = "";
+            var adjust = false;
+            var adjustYN = "";
+            var inner = "";
+            var outer = "";
+            var lower = "";
+            if (document.getElementById('inner').checked) {
+                inner = "inner";
+            } else {
+                inner = "";
+            }
+            if (document.getElementById('outer').checked) {
+                outer = "outer";
+            } else {
+                outer = "";
+            }
+
+            if (document.getElementById('lower').checked) {
+                lower = "lower";
+            } else {
+                lower = "";
+            }
+
+            if (document.getElementById('trenchY').checked) {
+                trench = true;
+                trenchYN = "yes";
+            } else if (document.getElementById('trenchN').checked) {
+                trench = true;
+                trenchYN = "no";
+            }
+
+            if (document.getElementById('controlY').checked) {
+                control = true;
+                controlYN = "yes";
+            } else if (document.getElementById('controlN').checked) {
+                control = true;
+                controlYN = "no";
+            }
+
+            if (document.getElementById('autoshootY').checked) {
+                autoshoot = true;
+                autoshootYN = "yes";
+            } else if (document.getElementById('autoshootN').checked) {
+                autoshoot = true;
+                autoshootYN = "no";
+            }
+
+            if (document.getElementById('autonavY').checked) {
+                autonav = true;
+                autonavYN = "yes";
+            } else if (document.getElementById('autonavN').checked) {
+                autonav = true;
+                autonavYN = "no";
+            }
+
+            if (document.getElementById('climbY').checked) {
+                climb = true;
+                climbYN = "yes";
+            } else if (document.getElementById('climbN').checked) {
+                climb = true;
+                climbYN = "no";
+            }
+
+            if (document.getElementById('adjustY').checked) {
+                adjust = true;
+                adjustYN = "yes";
+            } else if (document.getElementById('adjustN').checked) {
+                adjust = true;
+                adjustYN = "no";
+            }
+
+            if (document.getElementById('boundY').checked) {
+                bound = true;
+                boundYN = "yes";
+            } else if (document.getElementById('boundN').checked) {
+                bound = true;
+                boundYN = "no";
+            }
+
+            if (document.getElementById('teamNum').value == "") {
+                alert('Please Select Team Number');
+            } else if (document.getElementById('pitcom').value == "") {
+                alert('Please Write Comments About the Team');
+            } else if (document.getElementById('wheelCount').value == "") {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else if (document.getElementById('PCholdCount').value == "") {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else if (trench != true) {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else if (control != true) {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else if (autoshoot != true) {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else if (autonav != true) {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else if (adjust != true) {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else if (climb != true) {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else if (bound != true) {
+                alert('Please Answer the Remaining Questions About the Team');
+            } else {
+                var pitcom = document.getElementById("pitcom").value;
+                var teamNumber = document.getElementById("teamNum").value;
+                var wheelCount = document.getElementById('wheelCount').value;
+                var PCholdCount = document.getElementById('PCholdCount').value;
+                var ports = inner + " " + outer + " " + lower;
+                var keys = Object.keys(localStorage),
+                    x = keys.length;
+                var pitcom = document.getElementById("pitcom").value;
+                var obj = [
+                    `{ "teamNum": ${teamNumber}, "Amount_of_PCs": ${PCholdCount}, "fire_PCs": "${ports}", "Trench_Run": "${trenchYN}", "wheelCount": ${wheelCount}, "Control_Panel": "${controlYN}", "nav_in_auto": "${autonavYN}", "shoot_in_auto": "${autoshootYN}", "Get_over_bounds": "${boundYN}", "can_they_climb": ${climbYN}, "Adjust_on_switch": "${adjustYN}", "pitcom": "${pitcom}"}`
+                ];
+                download(`pit_${teamNumber}.txt`, obj)
+                localStorage.clear();
+            }
+        }
+
+        function download(filename, text) {
+            var pom = document.createElement('a');
+            pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            pom.setAttribute('download', filename);
+
+            if (document.createEvent) {
+                var event = document.createEvent('MouseEvents');
+                event.initEvent('click', true, true);
+                pom.dispatchEvent(event);
+            } else {
+                pom.click();
+            }
+        }
+    </script>
+</body>
+
+</html>

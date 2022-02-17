@@ -1,0 +1,15 @@
+Information on the "slave" or secondary database: The database running in the app is called local storage. It runs from a (modern)
+browser. It is important to note that this storage does work offline as well as online. The reason for this storage is to save
+data quickly while the person is scouting a match and then the data can be transferred later to another file type.
+
+Transitions to master or primary database: Hardwire Connection from tablets to laptop
+
+Master on primary database: This database runs on a primary computer being used by Scouting admin during competitions. This database is
+mostly TBD but we can either transition files by plugging in the tablets manually to the master computer or we can use some form of
+internet to transmit the files. In addition we will also be able to run a SQL or NoSQL database  which might be able to run smoother
+than a self-made database.
+
+
+Local Storage:
+This is a HTML5 integrated storage method. It allows for users to save data in a key / value format using JavaScript. This is integrated
+in many browsers so it is effectively offline compatible. This is not compatible with all browsers.

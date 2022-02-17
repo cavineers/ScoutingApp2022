@@ -1,0 +1,14 @@
+{
+    "name": "4541 Scouting Application",
+    "description": "FRC team 4541 Scouting App PWA ('offline ability')",
+    "short-name": "Scouting App",
+    "orientation": "Landscape",
+    "background-color": "#fff",
+    "display": "fullscreen",
+    "start-url": "127.0.0.1:8080/",
+    "icons": [{
+        "src": "https://cdn.discordapp.com/attachments/578396036113104907/625120847920889856/ScoutingLogo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    }]
+}

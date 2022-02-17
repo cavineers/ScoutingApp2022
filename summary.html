@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="Css/summary.css">
+</head>
+
+<body>
+    <button style="padding: 5px; background: white; border: none; border-radius: 3px; font-size: larger; cursor: pointer;" onclick="window.location.replace('index.html')">Back To Main</button>
+    <div class="tab">
+        <button class="tablinks" onclick="Summary(event, 'Comments')">Comments</button>
+        <button class="tablinks" onclick="Summary(event, 'Safety')">Safety</button>
+        <button class="tablinks" onclick="Summary(event, 'Errors')">Errors</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="Comments" class="tabcontenT">
+        <div style="display: flex;">
+            <button onclick="preLoad('Climbed Really Fast')" class="preBtn">Climb really fast</button>
+            <button onclick="preLoad('Climbed Really Slow')" class="preBtn">Climb really slow</button>
+            <button onclick="preLoad('Good at pickup power cells and picked them up quickly')" class="preBtn">Good at picking up balls</button>
+            <button onclick="preLoad('Struggled with pickup power cells')" class="preBtn">Struggled picking up</button>
+        </div>
+        <table cellspacing="15">
+            <tr>
+                <th>
+                    <p class="Text">Comment Box:</p>
+                    <textarea id="commentBox" placeholder="Type here to comment anything about the bot" class="textBox"></textarea>
+                </th>
+                <th>
+                    <p class="Text">Defense:</p>
+                    <textarea id="defenseComments" placeholder="Type here to comment about the bot's defense (optional)" class="textBox"></textarea>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p class="Text">Climbing:</p>
+                    <p class="Text">
+                        Can they adjust on bar?
+                    </p>
+                    <input class="checkboxes" id="checkboxClimb" type="checkbox">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <button onclick="preLoad('Trench Bot')" class="preBtn">Trench Bot</button>
+                </th>
+            </tr>
+        </table>
+        <br>
+        <button onclick="Summary(event, 'Safety')" style="padding: 8px; font-size: 24px; float: right; border-radius: 3px; background: white;">Next &rarr;</button>
+    </div>
+
+    <div id="Safety" class="tabcontent">
+        <div style="display: flex;">
+            <button onclick="preLoadSafety('Generally a safe team')" class="preBtn">Generally a safe team</button>
+            <button onclick="preLoadSafety('Did not wear gloves')" class="preBtn">Didn't wear gloves</button>
+            <button onclick="preLoadSafety('Wore Gloves')" class="preBtn">Wore Gloves</button>
+        </div>
+        <p class="Text">Safety Comments:</p>
+        <textarea id="safetyComments" placeholder="Type here to comment anything about the safety of the match" class="textBoxSafety"></textarea>
+        <p style="font-size: 24px; color: white;">Did they wear gloves?</p>
+        <p style="font-size: 24px; color: white;">Did they use caution when handling the robot?</p>
+        <p style="font-size: 24px; color: white;">Did they horseplay or endanger other people?</p>
+        <br>
+        <button onclick="Summary(event, 'Comments')" style="padding: 8px; font-size: 24px; float: left; border-radius: 3px; background: white; border: none;">&larr; Previous</button> <button onclick="Summary(event, 'Errors')" style="padding: 8px; font-size: 24px; float: right; border-radius: 3px; background: white;
+            border: none;">Next &rarr;</button>
+    </div>
+    <div id="Errors" class="tabcontent">
+        <table cellspacing=65>
+            <tr>
+                <td>
+                    <p class="Text">Did the bot fall?</p>
+                    <input class="checkboxes" id="checkboxFall" type="checkbox">
+                    <br>
+                    <p class="Text ">Was the bot disabled?</p>
+                    <input class="checkboxes" id="checkboxDisabled" type="checkbox">
+                </td>
+                <br>
+                <td>
+                    <p class="Text">Did the bot trip on bars?</p>
+                    <input class="checkboxes" id="checkboxTrip" type="checkbox">
+                    <p class="Text">Did the bot get a foul?</p>
+                    <input class="checkboxes" id="checkboxFoul" type="checkbox">
+                </td>
+            </tr>
+        </table>
+        <br>
+        <button onclick="Summary(event, 'Safety')" style="font-size: 24px; padding: 8px; float: left; border-radius: 3px; background: white; border: none;">&larr; Previous</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button class="finishButton" style="position: absolute; right: 5; cursor: pointer; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" onclick="submit()">Submit Data</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p style="color: rgb(38, 38, 38); ">_</p>
+    <script src="JS/summary.js "></script>
+</body>
+
+</html>

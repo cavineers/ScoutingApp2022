@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="Css/main.css">
+    <title>Main Mission</title>
+</head>
+
+<body onload="getMatchNum()">
+    <div class="navBar">
+        <div style="display: flex; margin-top: 10px;">
+            <a href="index.html">Back</a> &nbsp; &nbsp;&nbsp; &nbsp;
+            <button class="override" onclick="override()">Override</button> &nbsp; &nbsp;&nbsp; &nbsp;
+            <div class="actionRec" id="teamSelection">No Team Selected</div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="marginDiv">
+        <h2 style="text-align: center; font-size: 40px;">Main Mission &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <button class="override" onclick="noShow()">Bot was a no show</button></h2>
+        <br>
+        <select id="matchNum" name="matchNum" onchange="getTeamNum()">
+            <option value="" data-placeholder="true">Select Match Number</option>
+        </select>
+        <br><br><br>
+        <select id="teamNum" name="teamNum" onchange="updateTeamNum()">
+            <option value="" data-placeholder>Select Team #</option>
+        </select>
+        <br>
+        <br>
+        <br>
+        <select id="powerCellNum" name="powerCellNum">
+            <option value="" data-placeholder>Select Number of Starting Power Cells</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <br><br><br><br><br><br>
+        <button onclick="move()" class="startScouting">Start Scouting</button>
+    </div>
+    <script>
+        function move() {
+            if (document.getElementById('teamNum').value != "" && document.getElementById('matchNum').value != "" && document.getElementById('powerCellNum').value != "") {
+                setTeamNum();
+                setMatchKey();
+                setPowerCell();
+                window.location.replace('missionHome.html');
+            } else {
+                alert('Please Fill Out Needed Information');
+            }
+        }
+
+        function setTeamNum() {
+            sessionStorage.setItem('team_key', document.getElementById('teamNum').value);
+        }
+
+        function setMatchKey() {
+            sessionStorage.setItem('match_key', document.getElementById('matchNum').value);
+        }
+
+        function setPowerCell() {
+            sessionStorage.setItem('PowerCell_start', document.getElementById('powerCellNum').value);
+        }
+
+        function getMatchNum() {
+            for (let i = 1; i <= localStorage.length; i++) {
+                if (localStorage.getItem(`TBAdata${i}`) != null) {
+                    var x = document.createElement('OPTION');
+                    x.setAttribute('value', i);
+                    var t = document.createTextNode('Match ' + i);
+                    x.appendChild(t);
+                    document.getElementById("matchNum").appendChild(x);
+                }
+            }
+            for (let i = 1; i <= localStorage.length; i++) {
+                if (localStorage.getItem(`TBAdataQF${i}`) != null) {
+                    var x = document.createElement('OPTION');
+                    x.setAttribute('value', 'QF' + i);
+                    var t = document.createTextNode('Quarter Final ' + i);
+                    x.appendChild(t);
+                    document.getElementById("matchNum").appendChild(x);
+                }
+            }
+        }
+
+        function getTeamNum() {
+            document.getElementById('teamNum').options.length = 0;
+            var dropdownData = document.getElementById("matchNum").value;
+            var xx = document.createElement('OPTION');
+            xx.setAttribute('value', '');
+            var tt = document.createTextNode('Select Team #');
+            xx.appendChild(tt);
+            document.getElementById("teamNum").appendChild(xx);
+            for (let i = 1; i <= localStorage.length; i++) {
+                if (dropdownData == i) {
+                    let myArray = new Array();
+                    let data;
+                    data = (localStorage.getItem('TBAdata' + i));
+                    myArray = data.split(',');
+                    myArray.forEach((sepData) => {
+                        var x = document.createElement('OPTION');
+                        x.setAttribute('value', sepData);
+                        var t = document.createTextNode(sepData);
+                        let trunData;
+                        if (t.length == 6) {
+                            trunData = t.splitText(3, 6);
+                        } else if (t.length == 7) {
+                            trunData = t.splitText(3, 7);
+                        } else if (t.length == 5) {
+                            trunData = t.splitText(3, 5);
+                        }
+                        x.appendChild(trunData);
+                        document.getElementById("teamNum").appendChild(x);
+                    })
+                } else if (dropdownData == 'QF' + i) {
+                    let myArray = new Array();
+                    let data;
+                    data = (localStorage.getItem('TBAdataQF' + i));
+                    myArray = data.split(',');
+                    myArray.forEach((sepData) => {
+                        var x = document.createElement('OPTION');
+                        x.setAttribute('value', sepData);
+                        var t = document.createTextNode(sepData);
+                        let trunData;
+                        if (t.length == 6) {
+                            trunData = t.splitText(3, 6);
+                        } else if (t.length == 7) {
+                            trunData = t.splitText(3, 7);
+                        } else if (t.length == 5) {
+                            trunData = t.splitText(3, 5);
+                        }
+                        x.appendChild(trunData);
+                        document.getElementById("teamNum").appendChild(x);
+                    })
+                }
+            }
+        }
+
+        function updateTeamNum() {
+            if (document.getElementById("teamNum").value != "") {
+                let trunData = '';
+                if (document.getElementById("teamNum").value.length == 6) {
+                    trunData = document.getElementById("teamNum").value.substring(3, 6);
+                } else if (document.getElementById("teamNum").value.length == 7) {
+                    trunData = document.getElementById("teamNum").value.substring(3, 7);
+                } else if (document.getElementById("teamNum").value.length == 5) {
+                    trunData = document.getElementById("teamNum").value.substring(3, 5);
+                }
+                document.getElementById('teamSelection').innerHTML = trunData;
+            } else {
+                document.getElementById('teamSelection').innerHTML = 'Select Team';
+            }
+        }
+
+        function override() {
+            var promptRes = prompt('Please Enter Admin Password: ONLY DO THIS WITH AUTH');
+            if (promptRes == '4541') {
+                window.location.replace('missionHome.html');
+            } else {
+                alert('Please Enter Security Key');
+            }
+        }
+
+        function noShow() {
+            let res = confirm('Are you sure bot was a no show?');
+            if (res == true) {
+                if (document.getElementById("teamNum").value == '' && document.getElementById('matchNum').value == '') {
+                    alert('Please Select Team Number OR Match Number');
+                } else {
+                    let teamNumber = document.getElementById("teamNum").value;
+                    let matchNum = document.getElementById('matchNum').value;
+                    let obj = [
+                        `{ "teamNum": "${teamNumber}", "matchNum": ${matchNum}, "metrics": "No Show" }`
+                    ]
+                    download(`NOSHOW${matchNum}_${teamNumber}.txt`, obj);
+                    window.location.replace('index.html');
+                }
+            }
+        }
+
+        function download(filename, text) {
+            var pom = document.createElement('a');
+            pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            pom.setAttribute('download', filename);
+
+            if (document.createEvent) {
+                var event = document.createEvent('MouseEvents');
+                event.initEvent('click', true, true);
+                pom.dispatchEvent(event);
+            } else {
+                pom.click();
+            }
+        }
+    </script>
+    <script src="JS/registration.js"></script>
+</body>
+
+</html>
