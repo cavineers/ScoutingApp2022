@@ -31,22 +31,20 @@
         <br>
         <br>
         <br>
-        <select id="powerCellNum" name="powerCellNum">
-            <option value="" data-placeholder>Select Number of Starting Power Cells</option>
+        <select id="cargoNum" name="cargoNum">
+            <option value="" data-placeholder>Select Number of Starting Cargo</option>
             <option value="0">0</option>
             <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
         </select>
         <br><br><br><br><br><br>
         <button onclick="move()" class="startScouting">Start Scouting</button>
     </div>
     <script>
         function move() {
-            if (document.getElementById('teamNum').value != "" && document.getElementById('matchNum').value != "" && document.getElementById('powerCellNum').value != "") {
+            if (document.getElementById('teamNum').value != "" && document.getElementById('matchNum').value != "" && document.getElementById('cargoNum').value != "") {
                 setTeamNum();
                 setMatchKey();
-                setPowerCell();
+                setCargo();
                 window.location.replace('missionHome.html');
             } else {
                 alert('Please Fill Out Needed Information');
@@ -61,8 +59,8 @@
             sessionStorage.setItem('match_key', document.getElementById('matchNum').value);
         }
 
-        function setPowerCell() {
-            sessionStorage.setItem('PowerCell_start', document.getElementById('powerCellNum').value);
+        function setCargo() {
+            sessionStorage.setItem('Cargo_start', document.getElementById('cargoNum').value);
         }
 
         function getMatchNum() {

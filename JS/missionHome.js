@@ -21,9 +21,9 @@ function setLocalStorage(btnType) {
     sessionStorage.setItem(i + 1, btnType);
 } // Old Function Pair
 
-let ballCount = parseInt(sessionStorage.getItem("PowerCell_start"));
+let ballCount = parseInt(sessionStorage.getItem("Cargo_start"));
 document.getElementById("ballCount").innerHTML = ballCount;
-let ballCount2 = parseInt(sessionStorage.getItem("PowerCell_start"));
+let ballCount2 = parseInt(sessionStorage.getItem("Cargo_start"));
 document.getElementById("ballCount2").innerHTML = ballCount;
 let defenseCounter = 0;
 document.getElementById("defenseCounter").innerHTML = defenseCounter;
@@ -34,14 +34,14 @@ function setLocalPickup() {
     document.getElementById("ballCount").innerHTML = ballCount;
     ballCount2 += 1;
     document.getElementById("ballCount2").innerHTML = ballCount2;
-    if (ballCount == 5) {
+    if (ballCount == 2) {
         document.getElementById("ballCount").style.color = "red";
     }
-    if (ballCount == 6) {
+    if (ballCount == 3) {
         document.getElementById('undoAlert').style.display = "block"
     }
     g++
-    sessionStorage.setItem('pickup_cell', g);
+    sessionStorage.setItem('pickup_cargo', g);
     lastAction.innerHTML = 'Pick Up Ball';
     sessionStorage.setItem('lastAction', 'pickUp');
 }
@@ -55,7 +55,7 @@ function setLocalMissed() {
         document.getElementById("ballCount").style.color = 'white';
     }
     mi++
-    sessionStorage.setItem('missedPowerCell', mi);
+    sessionStorage.setItem('missedCargo', mi);
     lastAction.innerHTML = 'Missed Shot';
     sessionStorage.setItem('lastAction', 'missed');
 }
@@ -69,7 +69,7 @@ function setLocalDeliver1() {
         document.getElementById("ballCount").style.color = 'white';
     }
     d1++
-    sessionStorage.setItem('deliverCell_level1', d1)
+    sessionStorage.setItem('delivercar_level1', d1)
     lastAction.innerHTML = 'Deliver to lvl 1';
     sessionStorage.setItem('lastAction', 'del1');
 }
@@ -83,7 +83,7 @@ function setLocalDeliver2() {
         document.getElementById("ballCount").style.color = 'white';
     }
     d2++
-    sessionStorage.setItem('deliverCell_level2', d2)
+    sessionStorage.setItem('delivercargo_level2', d2)
     lastAction.innerHTML = 'Deliver to outer port';
     sessionStorage.setItem('lastAction', 'del2');
 }
@@ -97,12 +97,12 @@ function setLocalDeliver3() {
         document.getElementById("ballCount").style.color = 'white';
     }
     d3++
-    sessionStorage.setItem('deliverCell_level3', d3)
+    sessionStorage.setItem('deliverCargo_level3', d3)
     lastAction.innerHTML = 'Deliver to inner port';
     sessionStorage.setItem('lastAction', 'del3');
 }
 
-function delAutoCell() {
+function delAutoCargo() {
     ballCount -= 1;
     document.getElementById("ballCount").innerHTML = ballCount;
     ballCount2 -= 1;
@@ -210,7 +210,7 @@ function wheelColorNot() {
 
 var teamNumber = sessionStorage.getItem('team_key');
 var matchNum = sessionStorage.getItem('match_key');
-var startingCells = sessionStorage.getItem('PowerCell_start');
+var startingCargo = sessionStorage.getItem('Cargo_start');
 
 document.getElementById('submit').addEventListener('click', () => {
     window.location.replace('summary.html');
@@ -248,7 +248,7 @@ var downloadTimer = setInterval(function() {
 
 //Modal (popup) Stuff
 var modal = document.getElementById("deliverModal");
-document.getElementById("DelPower").onclick = function() {
+document.getElementById("DelCargo").onclick = function() {
     modal.style.display = "block";
 }
 
@@ -300,7 +300,7 @@ function undo() {
             document.getElementById("ballCount").style.color = 'white';
         }
         g--
-        sessionStorage.setItem('pickup_cell', g);
+        sessionStorage.setItem('pickup_cargo', g);
     } else if (lastMove == 'missed') {
         ballCount += 1;
         document.getElementById("ballCount").innerHTML = ballCount;
@@ -311,7 +311,7 @@ function undo() {
             document.getElementById("ballCount").style.color = "red";
         }
         mi--
-        sessionStorage.setItem('missedPowerCell', mi);
+        sessionStorage.setItem('missedCargo', mi);
     } else if (lastMove == 'del1') {
         ballCount += 1;
         document.getElementById("ballCount").innerHTML = ballCount;
@@ -322,7 +322,7 @@ function undo() {
             document.getElementById("ballCount").style.color = "red";
         }
         d1--
-        sessionStorage.setItem('deliverCell_level1', d1)
+        sessionStorage.setItem('deliverCargo_level1', d1)
     } else if (lastMove == 'del2') {
         ballCount += 1;
         document.getElementById("ballCount").innerHTML = ballCount;
@@ -333,7 +333,7 @@ function undo() {
             document.getElementById("ballCount").style.color = "red";
         }
         d2--
-        sessionStorage.setItem('deliverCell_level2', d2)
+        sessionStorage.setItem('deliverCargo_level2', d2)
     } else if (lastMove == 'del3') {
         ballCount += 1;
         document.getElementById("ballCount").innerHTML = ballCount;
@@ -344,7 +344,7 @@ function undo() {
             document.getElementById("ballCount").style.color = "red";
         }
         d3--
-        sessionStorage.setItem('deliverCell_level3', d3);
+        sessionStorage.setItem('deliverCargo_level3', d3);
     } else if (lastMove == 'autoDel') {
         ballCount += 1;
         document.getElementById("ballCount").innerHTML = ballCount;

@@ -1,6 +1,6 @@
 var teamNumber = sessionStorage.getItem('team_key');
 var matchNum = sessionStorage.getItem('match_key');
-var startingCells = sessionStorage.getItem('PowerCell_start');
+var startingCargo = sessionStorage.getItem('Cargo_start');
 
 function preLoad(stringMetrics) {
     let commentBox = document.getElementById('commentBox').value;
@@ -61,10 +61,10 @@ function submit() {
     sessionStorage.setItem('Sum-Disabled', checkboxDisabled);
     sessionStorage.setItem('Sum-Trip', checkboxTrip);
     sessionStorage.setItem('Sum_Foul', checkboxFoul);
-    var pickup_cell = sessionStorage.getItem('pickup_cell');
-    var deliverCell_level1 = sessionStorage.getItem('deliverCell_level1');
-    var deliverCell_level2 = sessionStorage.getItem('deliverCell_level2');
-    var deliverCell_level3 = sessionStorage.getItem('deliverCell_level3');
+    var pickup_cargo = sessionStorage.getItem('pickup_cargo');
+    var droppedCargo = sessionStorage.getItem('droppedCargo');
+    var deliverCargo_level2 = sessionStorage.getItem('deliverCargo_level2');
+    var deliverCargo_level3 = sessionStorage.getItem('deliverCargo_level3');
     var climbComplete = sessionStorage.getItem('climbComplete');
     var climbAttempt = sessionStorage.getItem('climbAttempt');
     var didNotClimb = sessionStorage.getItem('didNotClimb');
@@ -76,7 +76,7 @@ function submit() {
     var spunControl_more_than_5times = sessionStorage.getItem('spunControl_more_than_5times');
     var LandedOnNeededColor = sessionStorage.getItem('LandedOnNeededColor');
     var MissedWheelColor = sessionStorage.getItem('MissedWheelColor');
-    let missedCells = sessionStorage.getItem('missedPowerCell');
+    let missedCargo = sessionStorage.getItem('missedCargo');
     let Scouter_name = sessionStorage.getItem('Scouter_name');
     let stage3_control = 'missedColor'
     let stage2_control = 'spun_less_than_3_times'
@@ -114,7 +114,7 @@ function submit() {
     let foul = sessionStorage.getItem('Sum_Foul');
     let autoDel = sessionStorage.getItem('AUTONOMOUS_Deliver');
     var obj = [
-        `{ "teamNum": "${teamNumber}", "matchNum": ${matchNum}, "startingCells": ${startingCells}, "metrics": {"numberOfPickups": ${pickup_cell},"deliveriesLvl1": ${deliverCell_level1},"deliveriesLvl2": ${deliverCell_level2},"deliveriesLvl3": ${deliverCell_level3},"missedPowerCell": ${missedCells},"climb": "${climbVal}","numPins": ${pinned_bot},"numPush": ${push_bot},"numDisrupted": ${disrupted_bot},"stage2_control": "${stage2_control}","stage3_control": "${stage3_control}"},"SummaryData": {"Comments": "${com}","DefenseComments": "${deCom}","SafetyComments": "${safe}","RobotFall": "${fall}","RobotDisabled": "${disabled}","RobotTrip": "${trip}","AdjustOnBar": "${WellClimb}","GetFoul": "${foul}"},"Autonomous_Metrics": {"num_deliverCell": ${autoDel},"crossLine": "${crossLineVal}"}, "Scouter_name": "${Scouter_name}"}\n`
+        `{ "teamNum": "${teamNumber}", "matchNum": ${matchNum}, "startingCargo": ${startingCargo}, "metrics": {"numberOfPickups": ${pickup_cargo},"droppedCargo": ${droppedCargo},"deliveriesLvl2": ${deliverCargo_level2},"topLevel": ${topLevel},"missedCargo": ${missedCargo},"climb": "${climbVal}","numPins": ${pinned_bot},"numPush": ${push_bot},"numDisrupted": ${disrupted_bot},"stage2_control": "${stage2_control}","stage3_control": "${stage3_control}"},"SummaryData": {"Comments": "${com}","DefenseComments": "${deCom}","SafetyComments": "${safe}","RobotFall": "${fall}","RobotDisabled": "${disabled}","RobotTrip": "${trip}","AdjustOnBar": "${WellClimb}","GetFoul": "${foul}"},"Autonomous_Metrics": {"num_deliverCargo": ${autoDel},"crossLine": "${crossLineVal}"}, "Scouter_name": "${Scouter_name}"}\n`
     ];
     download(`${matchNum}_${teamNumber}.txt`, obj);
     sessionStorage.clear();

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="Css/missionHome.css" />
-    <title>Infinite Recharge</title>
+    <title>Rapid React</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     <br><br><br><br>
     <br>
     <div id="undoAlert" style="display: none; text-align: center; border: 1px solid white;">
-        <p style="font-size: 24px;">Please Undo action: robot can't have 6 or more power cells</p>
+        <p style="font-size: 24px;">Please Undo action: robot can't have 3 or more cargo</p>
     </div>
     <div class="wrap">
         <button id="autoMode" class="element6">Autonomous Actions</button>
@@ -42,13 +42,13 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <p class="counter" style="color: yellow; font-size: 30px;" id="deliverCounter">Current ball count: <span id="ballCount2">0</span></p>
-                    <button class="delLevel" onclick="setLocalDeliver3()"><span>&uarr;</span><br>Inner Port</button>
+                    <button class="delLevel" onclick="setLocalTop()"><span>&uarr;</span><br>Inner Port</button>
                     <br>
-                    <button class="delLevel" onclick="setLocalDeliver2()"><span>&#8646;</span><br>Outer Port</button>
+                    <button class="delLevel" onclick="setLocalBottom()"><span>&#8646;</span><br>Outer Port</button>
                     <br>
-                    <button class="delLevel" onclick="setLocalDeliver1()"><span>&darr;</span><br>Lower Port</button>
+                    <button class="delLevel" onclick="setLocalDropped()"><span>&darr;</span><br>Dropped</button>
                     <br>
-                    <button class="delLevel" onclick="setLocalMissed()"><span>&#9932;</span><br>Dropped / Missed</button>
+                    <button class="delLevel" onclick="setLocalMissed()"><span>&#9932;</span><br>Missed</button>
                 </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
                 <div class="modal-contentAuto">
                     <div class="modal-bodyAuto">
                         <p style="color: yellow" class="modalText">Autonomous Actions</p>
-                        <button class="defenseBtn" id="delCellAuto" onclick="delAutoCell()"><br>Delivered Power Cell</button>
+                        <button class="defenseBtn" id="delCargoAuto" onclick="delAutoCargo()"><br>Delivered Cargo</button>
                         <br>
                         <button class="defenseBtn" id="CrossHabLine" onclick="crossHab()"><br>Crossed Hab Line</button>
                     </div>
