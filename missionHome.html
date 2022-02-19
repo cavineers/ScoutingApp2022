@@ -25,13 +25,12 @@
     </div>
     <div class="wrap">
         <button id="autoMode" class="element6">Autonomous Actions</button>
-        <button class="element5" id="defense">Defense</button>
+        <button class="element5" id="element2 button">Defense</button>
         <br>
         <br>
-        <button id="PickPower" onclick="setLocalPickup()" class="element1 button">Pickup Power</button>
-        <button id="Control" class="element2 button">Control Panel</button>
+        <button id="PickPower" onclick="setLocalPickup()" class="element1 button">Pickup Cargo</button>
         <br>
-        <button id="DelPower" class="element3 button">Deliver Power</button>
+        <button id="DelPower" class="element3 button">Deliver Cargo</button>
         <button id="Climb" class="element4 button">Climb</button>
     </div>
     <p class="counter" id="deliverCounter">Current ball count: <span id="ballCount">0</span></p>
@@ -42,9 +41,9 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <p class="counter" style="color: yellow; font-size: 30px;" id="deliverCounter">Current ball count: <span id="ballCount2">0</span></p>
-                    <button class="delLevel" onclick="setLocalTop()"><span>&uarr;</span><br>Inner Port</button>
+                    <button class="delLevel" onclick="setLocalTop()"><span>&uarr;</span><br>Top</button>
                     <br>
-                    <button class="delLevel" onclick="setLocalBottom()"><span>&#8646;</span><br>Outer Port</button>
+                    <button class="delLevel" onclick="setLocalBottom()"><span>&#8646;</span><br>Bottom</button>
                     <br>
                     <button class="delLevel" onclick="setLocalDropped()"><span>&darr;</span><br>Dropped</button>
                     <br>
