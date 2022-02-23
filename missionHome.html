@@ -6,48 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="Css/missionHome.css" />
-    <title>Rapid React</title>
+    <title>Infinite Recharge</title>
 </head>
 
 <body>
     <div class="navBar">
         <div style="display: flex; margin-top: 10px;">
-            <a onclick="moveToMain()">Return</a>
-            <div class="timer" id="countdown">Timer</div>
-            <div class="actionRec" id="lastAction">No Actions Yet</div>
-            <a onclick="undo()">Undo</a>
+            <a href="index.html">Back</a>
+            <div class="timer" id="countdown"></div>
         </div>
     </div>
     <br><br><br><br>
     <br>
-    <div id="undoAlert" style="display: none; text-align: center; border: 1px solid white;">
-        <p style="font-size: 24px;">Please Undo action: robot can't have 3 or more cargo</p>
-    </div>
     <div class="wrap">
-        <button id="autoMode" class="element6">Autonomous Actions</button>
-        <button class="element5" id="element2 button">Defense</button>
+        <button class="element5" id="defense">Defense</button>
         <br>
         <br>
-        <button id="PickPower" onclick="setLocalPickup()" class="element1 button">Pickup Cargo</button>
+        <button id="PickPower" onclick="setLocalStorage('Pickup Power Cell')" class="element1 button">Pickup Power Cell</button>
+        <button id="Control" class="element2 button">Control Panel</button>
         <br>
-        <button id="DelPower" class="element3 button">Deliver Cargo</button>
+        <button id="DelPower" class="element3 button">Deliver Power Cell</button>
         <button id="Climb" class="element4 button">Climb</button>
     </div>
-    <p class="counter" id="deliverCounter">Current ball count: <span id="ballCount">0</span></p>
     <div id="modal">
         <!-- The Modal -->
         <div unselectable="on" id="deliverModal" class="modal-all modal">
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-body">
-                    <p class="counter" style="color: yellow; font-size: 30px;" id="deliverCounter">Current ball count: <span id="ballCount2">0</span></p>
-                    <button class="delLevel" onclick="setLocalTop()"><span>&uarr;</span><br>Top</button>
+                    <button class="delLevel" onclick="setLocalStorage('Delivered Power Cell Level 3')"><span>&uarr;</span><br>Level 3</button>
                     <br>
-                    <button class="delLevel" onclick="setLocalBottom()"><span>&#8646;</span><br>Bottom</button>
+                    <button class="delLevel" onclick="setLocalStorage('Delivered Power Cell Level 2')"><span>&#8646;</span><br>Level 2</button>
                     <br>
-                    <button class="delLevel" onclick="setLocalDropped()"><span>&darr;</span><br>Dropped</button>
-                    <br>
-                    <button class="delLevel" onclick="setLocalMissed()"><span>&#9932;</span><br>Missed</button>
+                    <button class="delLevel" onclick="setLocalStorage('Delivered Power Cell Level 1')"><span>&darr;</span><br>Level 1</button>
                 </div>
             </div>
         </div>
@@ -60,11 +51,11 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <p>Did they climb?</p>
-                    <button class="climbBtn" onclick="setLocalClimbCom()">Yes</button>
+                    <button class="climbBtn" onclick="setLocalStorage('Completed Climb')">Yes</button>
                     <br>
-                    <button class="climbBtn" onclick="setLocalClimbNot()">No</button>
+                    <button class="climbBtn" onclick="setLocalStorage('Did Not Climb')">No</button>
                     <br>
-                    <button class="climbBtn" onclick="setLocalClimbAtt()">Failed Climb</button>
+                    <button class="climbBtn" onclick="setLocalStorage('Attempted to Climb')">Attempted a Climb</button>
                 </div>
             </div>
         </div>
@@ -74,63 +65,18 @@
         <div unselectable="on" id="modalDefense" class="modal-all modal">
             <div class="modal-content">
                 <div class="modal-body">
-                    <p style="color: yellow;">Defense actions: <span id="defenseCounter">0</span></p>
-                    <button class="defenseBtn" onclick="defensePin()"><br>Pin Bot</button>
+                    <button class="defenseBtn" onclick="setLocalStorage('Pinned Enemy Bot')"><br>Pin Bot</button>
                     <br>
-                    <button class="defenseBtn" onclick="defensePush()"><br>Push Bot</button>
+                    <button class="defenseBtn" onclick="setLocalStorage('Pushed Enemy Bot')"><br>Push Bot</button>
                     <br>
-                    <button class="defenseBtn" onclick="defenseDis()"><br>Disrupt Shooting</button>
+                    <button class="defenseBtn" onclick="setLocalStorage('Disrupted Enemy Bot Shooting')"><br>Disrupt Shooting</button>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="controlModal">
-        <!-- The Modal -->
-        <div unselectable="on" id="control" class="modal-all modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-bodyControl">
-                    <div>
-                        <p class="modalText">How many spins?</p>
-                        <button class="defenseBtns" id="lessThanThree" onclick="spinCont()"><br>Less than 3</button>
-                        <br>
-                        <button class="defenseBtns" id="threeToFive" onclick="spinContLess()"><br>3-5</button>
-                        <br>
-                        <button class="defenseBtns" id="moreThanFive" onclick="spinContMore()"><br>More than 5</button>
-                    </div>
-                    <div>
-                        <p class="modalText">Spin to right color?</p>
-                        <button class="defenseBtns" id="threeYes" onclick="wheelColor()"><br>Yes</button>
-                        <br>
-                        <button class="defenseBtns" id="threeNo" onclick="wheelColorNot()"><br>No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="auto">
-            <div unselectable="on" id="autoModal" class="modal-all modalAuto">
-                <!-- Modal content -->
-                <div class="modal-contentAuto">
-                    <div class="modal-bodyAuto">
-                        <p style="color: yellow" class="modalText">Autonomous Actions</p>
-                        <button class="defenseBtn" id="delCargoAuto" onclick="delAutoCargo()"><br>Delivered Cargo</button>
-                        <br>
-                        <button class="defenseBtn" id="CrossHabLine" onclick="crossHab()"><br>Crossed Hab Line</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-    <button class="matchFinish" id="submit">Match Done</button>
-    <script src="JS/registration.js"></script>
-    <script src="JS/missionHome.js"></script>
-    <script>
-        function moveToMain() {
-            sessionStorage.clear();
-            window.location.replace('index.html');
-        }
-    </script>
+        <br>
+        <button class="matchFinish" id="submit">Match Done</button>
+        <script src="JS/registration.js"></script>
+        <script src="JS/missionHome.js"></script>
 </body>
 
 </html>
