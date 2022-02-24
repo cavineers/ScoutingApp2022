@@ -106,7 +106,6 @@ function submit() {
 
     let com = sessionStorage.getItem('Sum-Comments');
     let deCom = sessionStorage.getItem('Sum-DefComs');
-    let WellClimb = sessionStorage.getItem('Sum-adjust');
     let safe = sessionStorage.getItem('Sum-SafetyCom');
     let fall = sessionStorage.getItem('Sum-Fall');
     let disabled = sessionStorage.getItem('Sum-Disabled');
