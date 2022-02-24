@@ -69,7 +69,6 @@ function submit() {
     var climbL2 = sessionStorage.getItem('climbL2');
     var climbL3 = sessionStorage.getItem('climbL3');
     var climbL4 = sessionStorage.getItem('climbL4');
-    var climbAttempt = sessionStorage.getItem('climbAttempt');
     var didNotClimb = sessionStorage.getItem('didNotClimb');
     var pinned_bot = sessionStorage.getItem('pinned_bot');
     var disrupted_bot = sessionStorage.getItem('disrupted_bot');
@@ -119,7 +118,7 @@ function submit() {
     let foul = sessionStorage.getItem('Sum_Foul');
     let autoDel = sessionStorage.getItem('AUTONOMOUS_Deliver');
     var obj = [
-        `{ "teamNum": "${teamNumber}", "matchNum": ${matchNum}, "startingCargo": ${startingCargo}, "metrics": {"numberOfPickups": ${pickup_cargo},"drops": ${cargoDropped},"deliveriesBottom": ${deliverCargo_bottom},"deliveriesTop": ${deliverCargo_top},"missedCargo": ${missedCargo},"climb": "${climbVal}","numPins": ${pinned_bot},"numPush": ${push_bot},"numDisrupted": ${disrupted_bot},"SummaryData": {"Comments": "${com}","DefenseComments": "${deCom}","SafetyComments": "${safe}","RobotFall": "${fall}","RobotDisabled": "${disabled}","RobotTrip": "${trip}","AdjustOnBar": "${WellClimb}","GetFoul": "${foul}"},"Autonomous_Metrics": {"num_deliverCargo": ${autoDel},"crossLine": "${crossLineVal}"}, "Scouter_name": "${Scouter_name}"}\n`
+        `{ "teamNum": "${teamNumber}", "matchNum": ${matchNum}, "startingCargo": ${startingCargo}, "metrics": {"numberOfPickups": ${pickup_cargo},"drops": ${cargoDropped},"deliveriesBottom": ${deliverCargo_bottom},"deliveriesTop": ${deliverCargo_top},"missedCargo": ${missedCargo},"climbLev": ${climbLev},"numPins": ${pinned_bot},"numPush": ${push_bot},"numDisrupted": ${disrupted_bot},"SummaryData": {"Comments": "${com}","DefenseComments": "${deCom}","SafetyComments": "${safe}","RobotFall": "${fall}","RobotDisabled": "${disabled}","RobotTrip": "${trip}","GetFoul": "${foul}"},"Autonomous_Metrics": {"num_deliverCargo": ${autoDel},"crossLine": "${crossLineVal}"}, "name": "${name}"}\n`
     ];
     download(`${matchNum}_${teamNumber}.txt`, obj);
     sessionStorage.clear();
