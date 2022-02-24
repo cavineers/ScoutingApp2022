@@ -1,5 +1,6 @@
 {
     "name": "4541 Scouting Application",
+    "description": "FRC team 4541 Scouting App PWA ('offline ability')",
     "short-name": "Scouting App",
     "orientation": "Landscape",
     "background-color": "#fff",

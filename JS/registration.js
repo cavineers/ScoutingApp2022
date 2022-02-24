@@ -1,5 +1,5 @@
   // Checking for Service Worker Support
-  /*  if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker
                 .register('/sw.js')
@@ -11,7 +11,7 @@
 
         })
 
-    } */
+    } 
 
   if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/ScoutingApp_2.0/sw.js')
