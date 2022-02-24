@@ -51,7 +51,6 @@ function submit() {
     }
     sessionStorage.setItem('Sum-Comments', comments);
     sessionStorage.setItem('Sum-DefComs', defenseCom);
-    sessionStorage.setItem('Sum-adjust', climbWell);
     sessionStorage.setItem('Sum-SafetyCom', safetyComments);
     sessionStorage.setItem('Sum-Fall', Fall);
     sessionStorage.setItem('Sum-Disabled', checkboxDisabled);
