@@ -23,10 +23,6 @@ function submit() {
         new RegExp("\\n", "g"),
         " "
     )
-    let climbWell = 'NO';
-    if (document.getElementById('checkboxClimb').checked == true) {
-        climbWell = "YES";
-    }
     let safetyComments = document.getElementById('safetyComments').value;
     safetyComments = safetyComments.replace(
         new RegExp("\\n", "g"),
