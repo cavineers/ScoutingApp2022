@@ -4,23 +4,22 @@ body {
 }
 
 select {
-    background: rgb(0, 162, 255);
+    background: rgb(255, 0, 0);
     color: white;
-    font-size: 25px;
-    border-radius: 5px;
+    font-size: 20px;
+    border-radius: 2px;
     border: none;
-    padding: 0.5rem;
 }
 
 .marginDiv {
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 30px;
+    margin-left: 30px;
 }
 
 .leave {
     font-size: 25px;
-    padding: 0.35rem;
-    background: white;
+    background: rgb(255, 0, 0);
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -33,7 +32,7 @@ select {
     margin: none;
     background-color: rgb(59, 53, 53);
     color: #fff;
-    padding: 0 20px;
+    padding: 0 10px;
     position: fixed;
     top: 0;
     left: 0;
@@ -61,3 +60,9 @@ select {
     height: 2.5rem;
     width: 8rem;
 }
+
+#bodyalign {
+    text-align: center;
+}
+
+
