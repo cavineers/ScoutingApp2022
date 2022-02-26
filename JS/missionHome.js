@@ -1,36 +1,204 @@
+let g = 0;
+let dr = 0;
+let db = 0;
+let dt = 0;
+let c = 0;
+let dp = 0;
+let dd = 0;
+let dpu = 0;
+let adc = 0;
+let ch = 1;
+let mi = 0;
+
 function setLocalStorage(btnType) {
     let keys = Object.keys(localStorage),
         i = keys.length;
-    localStorage.setItem(i + 1, btnType)
+    sessionStorage.setItem(i + 1, btnType);
+} // Old Function Pair
+
+let ballCount = parseInt(sessionStorage.getItem("Cargo_start"));
+document.getElementById("ballCount").innerHTML = ballCount;
+let ballCount2 = parseInt(sessionStorage.getItem("Cargo_start"));
+document.getElementById("ballCount2").innerHTML = ballCount;
+let defenseCounter = 0;
+document.getElementById("defenseCounter").innerHTML = defenseCounter;
+let lastAction = document.getElementById('lastAction');
+
+function setLocalPickup() {
+    ballCount += 1;
+    document.getElementById("ballCount").innerHTML = ballCount;
+    ballCount2 += 1;
+    document.getElementById("ballCount2").innerHTML = ballCount2;
+    if (ballCount == 2) {
+        document.getElementById("ballCount").style.color = "red";
+    }
+    if (ballCount == 3) {
+        document.getElementById('undoAlert').style.display = "block"
+    }
+    g++
+    sessionStorage.setItem('pickup_cargo', g);
+    lastAction.innerHTML = 'Pick Up Ball';
+    sessionStorage.setItem('lastAction', 'pickUp');
 }
 
-/* //Create Text file function
-var textFile = null;
-var makeTextFile = function(text) {
-    var data = new Blob([text], { type: 'text/plain' });
-    if (textFile !== null) {
-        window.URL.revokeObjectURL(textFile);
+function setLocalMissed() {
+    ballCount -= 1;
+    document.getElementById("ballCount").innerHTML = ballCount;
+    ballCount2 -= 1;
+    document.getElementById("ballCount2").innerHTML = ballCount2;
+    if (ballCount <= 2) {
+        document.getElementById("ballCount").style.color = 'white';
     }
-    textFile = window.URL.createObjectURL(data);
-    return textFile;
-}; */
-var teamNumber = localStorage.getItem(1);
+    mi++
+    sessionStorage.setItem('missedCargo', mi);
+    lastAction.innerHTML = 'Missed Shot';
+    sessionStorage.setItem('lastAction', 'missed');
+}
+
+function setLocalDropped() {
+    ballCount -= 1;
+    document.getElementById("ballCount").innerHTML = ballCount;
+    ballCount2 -= 1;
+    document.getElementById("ballCount2").innerHTML = ballCount2;
+    if (ballCount <= 2) {
+        document.getElementById("ballCount").style.color = 'white';
+    }
+    dr++
+    sessionStorage.setItem('cargoDropped', dr)
+    lastAction.innerHTML = 'Dropped Cargo';
+    sessionStorage.setItem('lastAction', 'drop');
+}
+
+function setLocalDeliverbot() {
+    ballCount -= 1;
+    document.getElementById("ballCount").innerHTML = ballCount;
+    ballCount2 -= 1;
+    document.getElementById("ballCount2").innerHTML = ballCount2;
+    if (ballCount <= 2) {
+        document.getElementById("ballCount").style.color = 'white';
+    }
+    db++
+    sessionStorage.setItem('deliverCargo_bottom', db)
+    lastAction.innerHTML = 'Deliver to bottom';
+    sessionStorage.setItem('lastAction', 'delbot');
+}
+
+function setLocalDelivertop() {
+    ballCount -= 1;
+    document.getElementById("ballCount").innerHTML = ballCount;
+    ballCount2 -= 1;
+    document.getElementById("ballCount2").innerHTML = ballCount2;
+    if (ballCount <= 2) {
+        document.getElementById("ballCount").style.color = 'white';
+    }
+    dt++
+    sessionStorage.setItem('deliverCargo_top', dt)
+    lastAction.innerHTML = 'Deliver to top';
+    sessionStorage.setItem('lastAction', 'deltop');
+}
+
+function delAutoCargo() {
+    ballCount -= 1;
+    document.getElementById("ballCount").innerHTML = ballCount;
+    ballCount2 -= 1;
+    document.getElementById("ballCount2").innerHTML = ballCount2;
+    if (ballCount <= 2) {
+        document.getElementById("ballCount").style.color = 'white';
+    }
+    adc++;
+    sessionStorage.setItem('AUTONOMOUS_Deliver', adc);
+    lastAction.innerHTML = 'Auto Deliver';
+    sessionStorage.setItem('lastAction', 'autoDel');
+}
+
+function crossHab() {
+    sessionStorage.setItem('AUTONOMOUS_Cross', ch);
+    lastAction.innerHTML = 'Auto Cross';
+    sessionStorage.setItem('lastAction', 'autoCross');
+}
+
+function setLocalClimbL1() {
+    c++
+    sessionStorage.setItem('climbL1', c)
+    climbModal.style.display = "none";
+    lastAction.innerHTML = 'Complete Climb Level 1';
+    sessionStorage.setItem('lastAction', 'climbL1');
+}
+
+function setLocalClimbL2() {
+    c++
+    sessionStorage.setItem('climbL2', c)
+    climbModal.style.display = "none";
+    lastAction.innerHTML = 'Complete Climb Level 2';
+    sessionStorage.setItem('lastAction', 'climbL2');
+}
+
+function setLocalClimbL3() {
+    c++
+    sessionStorage.setItem('climbL3', c)
+    climbModal.style.display = "none";
+    lastAction.innerHTML = 'Complete Climb Level 3';
+    sessionStorage.setItem('lastAction', 'climbL3');
+}
+
+function setLocalClimbL4() {
+    c++
+    sessionStorage.setItem('climbL4', c)
+    climbModal.style.display = "none";
+    lastAction.innerHTML = 'Complete Climb Level 4';
+    sessionStorage.setItem('lastAction', 'climbL4');
+}
+
+function setLocalClimbAtt() {
+    c++
+    sessionStorage.setItem('climbAttempt', c)
+    climbModal.style.display = "none";
+    lastAction.innerHTML = 'Fell Off';
+    sessionStorage.setItem('lastAction', 'attClimb');
+}
+
+function setLocalClimbNot() {
+    c++
+    sessionStorage.setItem('didNotClimb', c)
+    climbModal.style.display = "none";
+    lastAction.innerHTML = "Didn't Climb";
+    sessionStorage.setItem('lastAction', 'donClimb');
+}
+
+function defensePin() {
+    defenseCounter++;
+    document.getElementById("defenseCounter").innerHTML = defenseCounter;
+    dp++;
+    sessionStorage.setItem('pinned_bot', dp)
+    lastAction.innerHTML = 'Pinned Bot';
+    sessionStorage.setItem('lastAction', 'pinBot');
+}
+
+function defensePush() {
+    defenseCounter++;
+    document.getElementById("defenseCounter").innerHTML = defenseCounter;
+    dpu++;
+    sessionStorage.setItem('push_bot', dpu)
+    lastAction.innerHTML = 'Pushed Bot';
+    sessionStorage.setItem('lastAction', 'pushBot');
+}
+
+function defenseDis() {
+    defenseCounter++;
+    document.getElementById("defenseCounter").innerHTML = defenseCounter;
+    dd++;
+    sessionStorage.setItem('disrupted_bot', dd)
+    lastAction.innerHTML = 'Disabled Bot';
+    sessionStorage.setItem('lastAction', 'defDis');
+}
+
+
+var teamNumber = sessionStorage.getItem('team_key');
+var matchNum = sessionStorage.getItem('match_key');
+var startingCargo = sessionStorage.getItem('Cargo_start');
 
 document.getElementById('submit').addEventListener('click', () => {
-    var keys = Object.keys(localStorage),
-        x = keys.length;
-    var textVal = [];
-    for (var i = 2; i <= x; i++) {
-        var values = localStorage.getItem(i);
-        console.log(values);
-        textVal.push(values);
-    }
-    var obj = [
-        `{ "teamNum": ${teamNumber}, "metrics": "${textVal}" }`
-    ];
-    download('test.json', obj)
-    localStorage.clear();
-
+    window.location.replace('summary.html');
 })
 
 function download(filename, text) {
@@ -50,7 +218,7 @@ function download(filename, text) {
 var timeleft = 150;
 var downloadTimer = setInterval(function() {
     timeleft--;
-    document.getElementById("countdown").textContent = "Time left in match " + timeleft;
+    document.getElementById("countdown").textContent = "Time left " + timeleft;
     if (timeleft <= 0) {
         clearInterval(downloadTimer);
         document.getElementById('countdown').style.color = 'red';
@@ -65,8 +233,13 @@ var downloadTimer = setInterval(function() {
 
 //Modal (popup) Stuff
 var modal = document.getElementById("deliverModal");
-document.getElementById("DelPower").onclick = function() {
+document.getElementById("DelCargo").onclick = function() {
     modal.style.display = "block";
+}
+
+var autoModal = document.getElementById('autoModal');
+document.getElementById('autoMode').onclick = function() {
+    autoModal.style.display = "block";
 }
 
 var climbModal = document.getElementById("climbModal");
@@ -79,6 +252,7 @@ document.getElementById("defense").onclick = function() {
     defenseModal.style.display = "block";
 }
 
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -87,5 +261,110 @@ window.onclick = function(event) {
         climbModal.style.display = "none";
     } else if (event.target == defenseModal) {
         defenseModal.style.display = "none";
+    } else if (event.target == autoModal) {
+        autoModal.style.display = 'none';
     }
+}
+
+function undo() {
+    let lastMove = sessionStorage.getItem('lastAction');
+    document.getElementById('undoAlert').style.display = "none";
+
+    if (lastMove == 'pickUp') {
+        ballCount -= 1;
+        document.getElementById("ballCount").innerHTML = ballCount;
+        ballCount2 -= 1;
+        document.getElementById("ballCount2").innerHTML = ballCount2;
+        if (ballCount <= 2) {
+            document.getElementById("ballCount").style.color = 'white';
+        }
+        g--
+        sessionStorage.setItem('pickup_cargo', g);
+    } else if (lastMove == 'missed') {
+        ballCount += 1;
+        document.getElementById("ballCount").innerHTML = ballCount;
+
+        ballCount2 += 1;
+        document.getElementById("ballCount2").innerHTML = ballCount2;
+        if (ballCount == 2) {
+            document.getElementById("ballCount").style.color = "red";
+        }
+        mi--
+        sessionStorage.setItem('missedCargo', mi);
+    } else if (lastMove == 'drop') {
+        ballCount += 1;
+        document.getElementById("ballCount").innerHTML = ballCount;
+
+        ballCount2 += 1;
+        document.getElementById("ballCount2").innerHTML = ballCount2;
+        if (ballCount == 2) {
+            document.getElementById("ballCount").style.color = "red";
+        }
+        dr--
+        sessionStorage.setItem('cargoDropped', dr)
+    } else if (lastMove == 'delbot') {
+        ballCount += 1;
+        document.getElementById("ballCount").innerHTML = ballCount;
+
+        ballCount2 += 1;
+        document.getElementById("ballCount2").innerHTML = ballCount2;
+        if (ballCount == 2) {
+            document.getElementById("ballCount").style.color = "red";
+        }
+        db--
+        sessionStorage.setItem('deliverCargo_bottom', db)
+    } else if (lastMove == 'deltop') {
+        ballCount += 1;
+        document.getElementById("ballCount").innerHTML = ballCount;
+
+        ballCount2 += 1;
+        document.getElementById("ballCount2").innerHTML = ballCount2;
+        if (ballCount == 2) {
+            document.getElementById("ballCount").style.color = "red";
+        }
+        dt--
+        sessionStorage.setItem('deliverCargo_top', dt);
+    } else if (lastMove == 'autoDel') {
+        ballCount += 1;
+        document.getElementById("ballCount").innerHTML = ballCount;
+
+        ballCount2 += 1;
+        document.getElementById("ballCount2").innerHTML = ballCount2;
+        if (ballCount == 2) {
+            document.getElementById("ballCount").style.color = "red";
+        }
+        adc--;
+        sessionStorage.setItem('AUTONOMOUS_Deliver', adc);
+    } else if (lastMove == 'autoCross') {
+        ch--
+        sessionStorage.setItem('AUTONOMOUS_Cross', ch);
+    } else if (lastMove == 'comClimb') {
+        c--
+        sessionStorage.setItem('climbComplete', c);
+    } else if (lastMove == 'attClimb') {
+        c--
+        sessionStorage.setItem('climbAttempt', c);
+    } 
+    else if (lastMove == 'donClimb') {
+        c--
+        sessionStorage.setItem('didNotClimb', c);
+    } else if (lastMove == 'pinBot') {
+        defenseCounter--
+        document.getElementById("defenseCounter").innerHTML = defenseCounter;
+        dp--
+        sessionStorage.setItem('pinned_bot', dp);
+    } else if (lastMove == 'pushBot') {
+        defenseCounter--
+        document.getElementById("defenseCounter").innerHTML = defenseCounter;
+        dpu--
+        sessionStorage.setItem('push_bot', dpu);
+    } else if (lastMove == 'defDis') {
+        defenseCounter--;
+        document.getElementById("defenseCounter").innerHTML = defenseCounter;
+        dd--;
+        sessionStorage.setItem('disrupted_bot', dd)
+    } else {
+        alert('Error Undoing an action');
+    }
+    lastAction.innerHTML = 'Undone Action';
 }

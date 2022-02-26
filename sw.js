@@ -17,7 +17,11 @@ const cacheAssets = [
     '/ScoutingApp_2.0/missionHome.html',
     '/ScoutingApp_2.0/database-info.txt',
     '/ScoutingApp_2.0/Css/missionHome.css',
-    '/ScoutingApp_2.0/JS/missionHome.js'
+    '/ScoutingApp_2.0/JS/missionHome.js',
+    '/ScoutingApp_2.0/help.html',
+    '/ScoutingApp_2.0/JS/getTBA.js',
+    '/ScoutingApp_2.0/background.png',
+    '/ScoutingApp_2.0/bizScouting.html'
 ];
 
 // Calling the Install Event
@@ -26,24 +30,6 @@ self.addEventListener('install', e => {
     e.waitUntil(
         caches.open(cacheStaticName)
         .then(cache => {
-
-            //This worked below
-            /* cache.add('/ScoutingApp_2.0/index.html'); 
-             cache.add('/ScoutingApp_2.0/main.html');
-             cache.add('/ScoutingApp_2.0/summary.html');
-             cache.add('/ScoutingApp_2.0/Css/summary.css');
-             cache.add('/ScoutingApp_2.0/Css/index.css');
-             cache.add('/ScoutingApp_2.0/Css/main.css');
-             cache.add('/ScoutingApp_2.0/JS/index.js');
-             cache.add('/ScoutingApp_2.0/pitScouting.html');
-             cache.add('/ScoutingApp_2.0/missionHome.html');
-             cache.add('/ScoutingApp_2.0/Css/pitScouting.css');
-             cache.add('/ScoutingApp_2.0/JS/registration.js');
-             cache.add('/ScoutingApp_2.0/JS/missionHome.js');
-             cache.add('/ScoutingApp_2.0/JS/summary.js');
-             cache.add('/ScoutingApp_2.0/missionHome.html');
-             cache.add('/ScoutingApp_2.0/Css/missionHome.css'); */
-
             cacheAssets.forEach(val => {
                     cache.add(val)
                 })

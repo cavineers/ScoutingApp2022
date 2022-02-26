@@ -2,8 +2,11 @@ document.getElementById('leaveMain').addEventListener('click', () => {
     let name = document.getElementById('name').value;
     let type = document.getElementById('role').value;
     if (name != "") {
+        sessionStorage.setItem('Scouter_name', name);
         if (type == 'Pit_Scouting') {
-            window.location.replace('/pitScouting.html');
+            window.location.replace('pitScouting.html');
+        } else if (type == 'Biz_Scouting') {
+            window.location.replace('bizScouting.html');
         } else {
             window.location.replace('main.html');
         }

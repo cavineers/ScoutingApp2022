@@ -6,39 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="Css/missionHome.css" />
-    <title>Infinite Recharge</title>
+    <title>Rapid React</title>
 </head>
 
 <body>
     <div class="navBar">
         <div style="display: flex; margin-top: 10px;">
-            <a href="index.html">Back</a>
-            <div class="timer" id="countdown"></div>
+            <a onclick="moveToMain()">Return</a>
+            <div class="timer" id="countdown">Timer</div>
+            <div class="actionRec" id="lastAction">No Actions Yet</div>
+            <a onclick="undo()">Undo</a>
         </div>
     </div>
     <br><br><br><br>
     <br>
+    <div id="undoAlert" style="display: none; text-align: center; border: 1px solid white;">
+        <p style="font-size: 24px;">Please Undo action: robot can't have 2 or more cargo</p>
+    </div>
     <div class="wrap">
-        <button class="element5" id="defense">Defense</button>
+        <button id="autoMode" class="element6">Autonomous Actions</button>
+        <button id="PickPower" onclick="setLocalPickup()" class="element1 button">Pickup Cargo</button>
         <br>
         <br>
-        <button id="PickPower" onclick="setLocalStorage('Pickup Power Cell')" class="element1 button">Pickup Power Cell</button>
-        <button id="Control" class="element2 button">Control Panel</button>
+        <button class="element2 button" id="defense">Defense</button>
+       <!-- <button id="Control" class="element2 button">Control Panel</button> -->
         <br>
-        <button id="DelPower" class="element3 button">Deliver Power Cell</button>
+        <button id="DelCargo" class="element3 button">Deliver Cargo</button>
         <button id="Climb" class="element4 button">Climb</button>
     </div>
+    <p class="counter" id="deliverCounter">Current cargo count: <span id="ballCount">0</span></p>
     <div id="modal">
         <!-- The Modal -->
         <div unselectable="on" id="deliverModal" class="modal-all modal">
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-body">
-                    <button class="delLevel" onclick="setLocalStorage('Delivered Power Cell Level 3')"><span>&uarr;</span><br>Level 3</button>
+                    <p class="counter" style="color: yellow; font-size: 30px;" id="deliverCounter">Current ball count: <span id="ballCount2">0</span></p>
+                    <button class="delLevel" onclick="setLocalDelivertop()"><span>&uarr;</span><br>Top</button>
                     <br>
-                    <button class="delLevel" onclick="setLocalStorage('Delivered Power Cell Level 2')"><span>&#8646;</span><br>Level 2</button>
+                    <button class="delLevel" onclick="setLocalDeliverbot()"><span>&#8646;</span><br>Bottom</button>
                     <br>
-                    <button class="delLevel" onclick="setLocalStorage('Delivered Power Cell Level 1')"><span>&darr;</span><br>Level 1</button>
+                    <button class="delLevel" onclick="setLocalDropped()"><span>&darr;</span><br>Dropped</button>
+                    <br>
+                    <button class="delLevel" onclick="setLocalMissed()"><span>&#9932;</span><br>Missed</button>
                 </div>
             </div>
         </div>
@@ -50,12 +60,15 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-body">
-                    <p>Did they climb?</p>
-                    <button class="climbBtn" onclick="setLocalStorage('Completed Climb')">Yes</button>
+                    <button class="climbBtn" onclick="setLocalClimbL1()">Level 1</button>
                     <br>
-                    <button class="climbBtn" onclick="setLocalStorage('Did Not Climb')">No</button>
+                    <button class="climbBtn" onclick="setLocalClimbL2()">Level 2</button>
                     <br>
-                    <button class="climbBtn" onclick="setLocalStorage('Attempted to Climb')">Attempted a Climb</button>
+                    <button class="climbBtn" onclick="setLocalClimbL3()">Level 3</button>
+                    <br>
+                    <button class="climbBtn" onclick="setLocalClimbL4()">Level 4</button>
+                    <br>
+                    <button class="climbBtn" onclick="setLocalClimbAtt()">Fell Off</button>
                 </div>
             </div>
         </div>
@@ -65,18 +78,40 @@
         <div unselectable="on" id="modalDefense" class="modal-all modal">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button class="defenseBtn" onclick="setLocalStorage('Pinned Enemy Bot')"><br>Pin Bot</button>
+                    <p style="color: yellow;">Defense actions: <span id="defenseCounter">0</span></p>
+                    <button class="defenseBtn" onclick="defensePin()"><br>Pin Bot</button>
                     <br>
-                    <button class="defenseBtn" onclick="setLocalStorage('Pushed Enemy Bot')"><br>Push Bot</button>
+                    <button class="defenseBtn" onclick="defensePush()"><br>Push Bot</button>
                     <br>
-                    <button class="defenseBtn" onclick="setLocalStorage('Disrupted Enemy Bot Shooting')"><br>Disrupt Shooting</button>
+                    <button class="defenseBtn" onclick="defenseDis()"><br>Disrupt Shooting</button>
                 </div>
             </div>
         </div>
-        <br>
-        <button class="matchFinish" id="submit">Match Done</button>
-        <script src="JS/registration.js"></script>
-        <script src="JS/missionHome.js"></script>
+    </div>
+        <div id="auto">
+            <div unselectable="on" id="autoModal" class="modal-all modalAuto">
+                <!-- Modal content -->
+                <div class="modal-contentAuto">
+                    <div class="modal-bodyAuto">
+                        <p style="color: yellow" class="modalText">Autonomous Actions</p>
+                        <button class="defenseBtn" id="delCargoAuto" onclick="delAutoCargo()"><br>Delivered Cargo</button>
+                        <br>5t6
+                        <button class="defenseBtn" id="CrossHabLine" onclick="crossHab()"><br>Crossed Hab Line</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button class="matchFinish" id="submit">Match Done</button>
+    <script src="JS/registration.js"></script>
+    <script src="JS/missionHome.js"></script>
+    <script>
+        function moveToMain() {
+            sessionStorage.clear();
+            window.location.replace('index.html');
+        }
+    </script>
 </body>
 
 </html>
