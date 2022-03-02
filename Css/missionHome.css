@@ -1,6 +1,6 @@
 body {
-    color: white;
-    background: black;
+    color: rgb(255, 0, 0);
+    background: rgb(0, 0, 0);
     margin-left: 5rem;
     margin-right: 5rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -18,10 +18,11 @@ body {
     height: 120px;
     width: auto;
     border-radius: 5px;
-    border: 2px solid rgb(6, 6, 59);
-    font-size: 45px;
+    border: 2px solid rgb(255, 255, 255);
+    font-size: 22px;
     cursor: pointer;
-    background: white;
+    background: rgb(255, 0, 0);
+    color: white;
 }
 
 .element1 {
@@ -44,10 +45,11 @@ body {
     width: auto;
     height: 115px;
     border-radius: 5px;
-    border: 2px solid rgb(6, 6, 59);
-    font-size: 45px;
+    border: 2px solid rgb(255, 255, 255);
+    font-size: 22px;
     cursor: pointer;
-    background: white;
+    background: rgb(255, 0, 0);
+    color: white;
     margin-right: 30px;
     grid-column: 1 / span2;
     grid-row: 4;
@@ -57,10 +59,11 @@ body {
     width: auto;
     height: 70px;
     border-radius: 5px;
-    border: 1px solid rgb(6, 6, 59);
-    font-size: 42px;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 22px;
     cursor: pointer;
-    background: white;
+    background: rgb(255, 0, 0);
+    color: white;
     margin-right: 30px;
     grid-column: 1 / span2;
     grid-row: 1;
@@ -103,20 +106,22 @@ body {
 }
 
 .matchFinish {
-    background: white;
+    background: rgb(255, 0, 0);
+    color: white;
     float: right;
     font-size: 25px;
     padding: 0.25rem;
     margin-top: 2rem;
-    border: none;
+    border: 1px solid white;
     border-radius: 4px;
-    width: 17%;
+    width: 35%;
     cursor: pointer;
 }
 
 .modal-all {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background: #f4f4f4;
+    background: #ff0000;
+    color: white;
     font-size: 17px;
     line-height: 1.9;
     display: flex;
@@ -238,14 +243,14 @@ body {
 .counter {
     font-size: 38px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(255, 255, 0);
+    color: rgb(255, 255, 255);
 }
 
 .actionRec {
     margin-left: 15.5px;
     border: 1.75px solid black;
     padding: 8px;
-    font-size: 26.2px;
+    font-size: 13px;
 }
 
 .modalAuto {
