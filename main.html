@@ -9,7 +9,7 @@
     <title>Main Mission</title>
 </head>
 
-<body onload="getMatchNum()">
+<body id="bodyalign" onload="getMatchNum()">
     <div class="navBar">
         <div style="display: flex; margin-top: 10px;">
             <a href="index.html">Back</a> &nbsp; &nbsp;&nbsp; &nbsp;
@@ -19,7 +19,8 @@
     </div>
     <br><br><br>
     <div class="marginDiv">
-        <h2 style="text-align: center; font-size: 40px;">Main Mission &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; <button class="override" onclick="noShow()">Bot was a no show</button></h2>
+        <h2 style="text-align: center; font-size: 40px;">Main Mission</h2>
+        <h2><button class="override" onclick="noShow()">Bot was a no show</button></h2>
         <br>
         <select id="matchNum" name="matchNum" onchange="getTeamNum()">
             <option value="" data-placeholder="true">Select Match Number</option>

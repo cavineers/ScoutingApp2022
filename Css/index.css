@@ -2,10 +2,9 @@ body {
     background: url("DarkMode_Background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
 select {
     background: rgb(255, 0, 0);
     color: white;
@@ -64,8 +63,10 @@ select {
     width: 8rem;
 }
 
-.bodyalign {
+#bodyalign {
     text-align: center;
 }
 
-
+#title {
+    text-shadow: 1px 3px 0px rgb(255, 255, 255);
+}
