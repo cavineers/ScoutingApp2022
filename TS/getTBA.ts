@@ -7,8 +7,8 @@ let url_path: string;
 let JSONObjectsTBA: any;
 
 url_path = 'team/frc/4541'
-X_TBA_Auth_Key = 'n76cwPuhoIXIzKEHJsLFklHpzAbRFg9LDMo1TbOepLo8xOLIOHAkkUZn0NtKTvUE',
-url = ('https://www.thebluealliance.com/api/v3/event/2020mdbet/matches/simple'); //Change 2020mdbet Week2 Virginia Data
+X_TBA_Auth_Key = 'Yr1PG9BafkWX7xGsQpITSDOLOeqZWzBExSV9QnAsQJUtRKqVUYJKyVRfKRa6LCDn',
+url = ('https://www.thebluealliance.com/api/v3/event/2022dc305/matches/simple'); //Change 2020mdbet Week2 Virginia Data
 
 var headers = {
     'X-TBA-Auth-Key': 'n76cwPuhoIXIzKEHJsLFklHpzAbRFg9LDMo1TbOepLo8xOLIOHAkkUZn0NtKTvUE'
