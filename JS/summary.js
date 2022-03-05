@@ -112,7 +112,7 @@ function submit() {
     let foul = sessionStorage.getItem('Sum_Foul');
     let autoDel = sessionStorage.getItem('AUTONOMOUS_Deliver');
     var obj = [
-        `{ "teamNum": "${teamNumber}", "matchNum": ${matchNum}, "startingCargo": ${startingCargo}, "metrics": {"numberOfPickups": ${pickup_cargo},"drops": ${cargoDropped},"deliveriesBottom": ${deliverCargo_bottom},"deliveriesTop": ${deliverCargo_top},"missedCargo": ${missedCargo},"climbLev": ${climbLev},"numPins": ${pinned_bot},"numPush": ${push_bot},"numDisrupted": ${disrupted_bot},"SummaryData": {"Comments": "${com}","DefenseComments": "${deCom}","SafetyComments": "${safe}","RobotFall": "${fall}","RobotDisabled": "${disabled}","RobotTrip": "${trip}","GetFoul": "${foul}"},"Autonomous_Metrics": {"num_deliverCargo": ${autoDel},"crossLine": "${crossLineVal}"}, "name": "${name}"}\n`
+        `${teamNumber}|${matchNum}|${startingCargo}|${pickup_cargo}|${cargoDropped}|${deliverCargo_bottom}|${deliverCargo_top}|${missedCargo}|${climbLev}|${pinned_bot}|${push_bot}|${disrupted_bot}|${com}|${deCom}|${safe}|${fall}|${disabled}|${trip}|${foul}|${autoDel}|${crossLineVal}|${Scouter_name}|`
     ];
     download(`${matchNum}_${teamNumber}.txt`, obj);
     sessionStorage.clear();
