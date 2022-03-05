@@ -11,7 +11,7 @@ X_TBA_Auth_Key = 'Yr1PG9BafkWX7xGsQpITSDOLOeqZWzBExSV9QnAsQJUtRKqVUYJKyVRfKRa6LC
 url = ('https://www.thebluealliance.com/api/v3/event/2022dc305/matches/simple'); //Change 2020mdbet Week2 Virginia Data
 
 var headers = {
-    'X-TBA-Auth-Key': 'n76cwPuhoIXIzKEHJsLFklHpzAbRFg9LDMo1TbOepLo8xOLIOHAkkUZn0NtKTvUE'
+    'X-TBA-Auth-Key': 'Yr1PG9BafkWX7xGsQpITSDOLOeqZWzBExSV9QnAsQJUtRKqVUYJKyVRfKRa6LCDn'
   }
 
 var url_options = {

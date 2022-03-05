@@ -112,9 +112,9 @@ function submit() {
     let foul = sessionStorage.getItem('Sum_Foul');
     let autoDel = sessionStorage.getItem('AUTONOMOUS_Deliver');
     var obj = [
-        `${teamNumber}|${matchNum}|${startingCargo}|${pickup_cargo}|${cargoDropped}|${deliverCargo_bottom}|${deliverCargo_top}|${missedCargo}|${climbLev}|${pinned_bot}|${push_bot}|${disrupted_bot}|${com}|${deCom}|${safe}|${fall}|${disabled}|${trip}|${foul}|${autoDel}|${crossLineVal}|${Scouter_name}|`
+        `${teamNumber},${matchNum},${startingCargo},${pickup_cargo},${cargoDropped},${deliverCargo_bottom},${deliverCargo_top},${missedCargo},${climbLev},${pinned_bot},${push_bot},${disrupted_bot},${com},${deCom},${safe},${fall},${disabled},${trip},${foul},${autoDel},${crossLineVal},${Scouter_name},`
     ];
-    download(`${matchNum}_${teamNumber}.txt`, obj);
+    download(`${matchNum}_${teamNumber}.csv`, obj);
     sessionStorage.clear();
     alert('Data successfully logged! Please Refresh the app.');
     window.location.replace('index.html');

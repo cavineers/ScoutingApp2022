@@ -3,10 +3,10 @@ let url;
 let url_path;
 let JSONObjectsTBA;
 url_path = 'team/frc/4541';
-X_TBA_Auth_Key = 'n76cwPuhoIXIzKEHJsLFklHpzAbRFg9LDMo1TbOepLo8xOLIOHAkkUZn0NtKTvUE',
-    url = ('https://www.thebluealliance.com/api/v3/event/2020mdbet/matches/simple');
+X_TBA_Auth_Key = 'Yr1PG9BafkWX7xGsQpITSDOLOeqZWzBExSV9QnAsQJUtRKqVUYJKyVRfKRa6LCDn',
+    url = ('https://www.thebluealliance.com/api/v3/event/2022dc305/matches/simple');
 var headers = {
-    'X-TBA-Auth-Key': 'n76cwPuhoIXIzKEHJsLFklHpzAbRFg9LDMo1TbOepLo8xOLIOHAkkUZn0NtKTvUE'
+    'X-TBA-Auth-Key': 'Yr1PG9BafkWX7xGsQpITSDOLOeqZWzBExSV9QnAsQJUtRKqVUYJKyVRfKRa6LCDn'
 };
 var url_options = {
     'headers': headers,
