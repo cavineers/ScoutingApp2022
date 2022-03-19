@@ -64,6 +64,7 @@ function submit() {
     var climbL2 = sessionStorage.getItem('climbL2');
     var climbL3 = sessionStorage.getItem('climbL3');
     var climbL4 = sessionStorage.getItem('climbL4');
+    var climbAtt = sessionStorage.getItem('climbAttempt');
     var didNotClimb = sessionStorage.getItem('didNotClimb');
     var pinned_bot = sessionStorage.getItem('pinned_bot');
     var disrupted_bot = sessionStorage.getItem('disrupted_bot');
@@ -76,7 +77,7 @@ function submit() {
     } else if (didNotClimb >= 1) {
         climbLev = 'Did not climb'
     } else {
-        climbLev = 'Fell Off'
+        climbLev = 'Did not climb'
     }
 
     if (climbL2 >= 1) {
@@ -84,7 +85,7 @@ function submit() {
     } else if (didNotClimb >= 1) {
         climbLev = 'Did not climb'
     } else {
-        climbLev = 'Fell Off'
+        climbLev = 'Did not climb'
     }
 
     if (climbL3 >= 1) {
@@ -92,7 +93,7 @@ function submit() {
     } else if (didNotClimb >= 1) {
         climbLev = 'Did not climb'
     } else {
-        climbLev = 'Fell Off'
+        climbLev = 'Did not climb'
     }
 
     if (climbL4 >= 1) {
@@ -100,9 +101,12 @@ function submit() {
     } else if (didNotClimb >= 1) {
         climbLev = 'Did not climb'
     } else {
-        climbLev = 'Fell Off'
+        climbLev = 'Did not climb'
     }
 
+    if (climbAtt >= 1) {
+        climbLev = 'Fell Off'
+    }
     let com = sessionStorage.getItem('Sum-Comments');
     let deCom = sessionStorage.getItem('Sum-DefComs');
     let safe = sessionStorage.getItem('Sum-SafetyCom');
