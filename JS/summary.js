@@ -74,7 +74,7 @@ function submit() {
     let climbLev = '';
     if (climbL1 >= 1) {
         climbLev = 'Level 1'
-    } else if (didNotClimb >= 1) {
+    } else if (didNotClimb <= 1) {
         climbLev = 'Did not climb'
     } else {
         climbLev = 'Did not climb'
@@ -82,7 +82,7 @@ function submit() {
 
     if (climbL2 >= 1) {
         climbLev = 'Level 2'
-    } else if (didNotClimb >= 1) {
+    } else if (didNotClimb <= 1) {
         climbLev = 'Did not climb'
     } else {
         climbLev = 'Did not climb'
@@ -90,7 +90,7 @@ function submit() {
 
     if (climbL3 >= 1) {
         climbLev = 'Level 3'
-    } else if (didNotClimb >= 1) {
+    } else if (didNotClimb <= 1) {
         climbLev = 'Did not climb'
     } else {
         climbLev = 'Did not climb'
@@ -98,13 +98,13 @@ function submit() {
 
     if (climbL4 >= 1) {
         climbLev = 'Level 4'
-    } else if (didNotClimb >= 1) {
+    } else if (didNotClimb <= 1) {
         climbLev = 'Did not climb'
     } else {
         climbLev = 'Did not climb'
     }
 
-    if (climbAtt >= 1) {
+    if (climbAtt <= 1) {
         climbLev = 'Fell Off'
     }
     let com = sessionStorage.getItem('Sum-Comments');
@@ -116,7 +116,7 @@ function submit() {
     let foul = sessionStorage.getItem('Sum_Foul');
     let autoDel = sessionStorage.getItem('AUTONOMOUS_Deliver');
     var obj = [
-        `${teamNumber},${matchNum},${startingCargo},${pickup_cargo},${cargoDropped},${deliverCargo_bottom},${deliverCargo_top},${missedCargo},${climbLev},${pinned_bot},${push_bot},${disrupted_bot},${com},${deCom},${safe},${fall},${disabled},${trip},${foul},${autoDel},${crossLineVal},${Scouter_name}
+        `${teamNumber}|${matchNum}|${startingCargo}|${pickup_cargo}|${cargoDropped}|${deliverCargo_bottom}|${deliverCargo_top}|${missedCargo}|${climbLev}|${pinned_bot}|${push_bot}|${disrupted_bot}|${com}|${deCom}|${safe}|${fall}|${disabled}|${trip}|${foul}|${autoDel}|${crossLineVal}|${Scouter_name}
 `];
     download(`${matchNum}_${teamNumber}.csv`, obj);
     sessionStorage.clear();
