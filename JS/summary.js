@@ -88,10 +88,6 @@ function submit() {
         climbLev = 'Level 4'
     }
 
-    if (climbAtt <= 1) {
-        climbLev = 'Fell Off'
-    }
-
 
     let com = sessionStorage.getItem('Sum-Comments');
     let deCom = sessionStorage.getItem('Sum-DefComs');
