@@ -117,6 +117,14 @@ function crossHab() {
     sessionStorage.setItem('lastAction', 'autoCross');
 }
 
+function setLocalClimbAtt() {
+    c++
+    sessionStorage.setItem('climbAttempt', c)
+    climbModal.style.display = "none";
+    lastAction.innerHTML = 'Fell Off';
+    sessionStorage.setItem('lastAction', 'attClimb');
+}
+
 function setLocalClimbL1() {
     c++
     sessionStorage.setItem('climbL1', c)
@@ -149,21 +157,7 @@ function setLocalClimbL4() {
     sessionStorage.setItem('lastAction', 'climbL4');
 }
 
-function setLocalClimbAtt() {
-    c++
-    sessionStorage.setItem('climbAttempt', c)
-    climbModal.style.display = "none";
-    lastAction.innerHTML = 'Fell Off';
-    sessionStorage.setItem('lastAction', 'attClimb');
-}
 
-function setLocalClimbNot() {
-    c++
-    sessionStorage.setItem('didNotClimb', c)
-    climbModal.style.display = "none";
-    lastAction.innerHTML = "Didn't Climb";
-    sessionStorage.setItem('lastAction', 'donClimb');
-}
 
 function defensePin() {
     defenseCounter++;
@@ -341,14 +335,12 @@ function undo() {
     } else if (lastMove == 'comClimb') {
         c--
         sessionStorage.setItem('climbComplete', c);
-    } else if (lastMove == 'attClimb') {
+    }  else if (lastMove == 'attClimb') {
         c--
         sessionStorage.setItem('climbAttempt', c);
-    } 
-    else if (lastMove == 'donClimb') {
-        c--
-        sessionStorage.setItem('didNotClimb', c);
-    } else if (lastMove == 'pinBot') {
+    }
+    
+     else if (lastMove == 'pinBot') {
         defenseCounter--
         document.getElementById("defenseCounter").innerHTML = defenseCounter;
         dp--
