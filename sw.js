@@ -21,6 +21,7 @@ const cacheAssets = [
     '/ScoutingApp2022/help.html',
     '/ScoutingApp2022/JS/getTBA.js',
     '/ScoutingApp2022/background.png',
+    '/ScoutingApp2022/tsconfig.json',
     '/ScoutingApp2022/bizScouting.html'
 ];
 
