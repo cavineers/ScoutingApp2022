@@ -1,27 +1,27 @@
 const cacheStaticName = 'site-static'; //Change this if you change the cache assets!
 
 const cacheAssets = [
-    '/ScoutingApp_2.0/',
-    '/ScoutingApp_2.0/index.html',
-    '/ScoutingApp_2.0/main.html',
-    '/ScoutingApp_2.0/summary.html',
-    '/ScoutingApp_2.0/Css/summary.css',
-    '/ScoutingApp_2.0/Css/index.css',
-    '/ScoutingApp_2.0/Css/main.css',
-    '/ScoutingApp_2.0/JS/index.js',
-    '/ScoutingApp_2.0/pitScouting.html',
-    '/ScoutingApp_2.0/planetPrimus.html',
-    '/ScoutingApp_2.0/Css/pitScouting.css',
-    '/ScoutingApp_2.0/JS/registration.js',
-    '/ScoutingApp_2.0/JS/summary.js',
-    '/ScoutingApp_2.0/missionHome.html',
-    '/ScoutingApp_2.0/database-info.txt',
-    '/ScoutingApp_2.0/Css/missionHome.css',
-    '/ScoutingApp_2.0/JS/missionHome.js',
-    '/ScoutingApp_2.0/help.html',
-    '/ScoutingApp_2.0/JS/getTBA.js',
-    '/ScoutingApp_2.0/background.png',
-    '/ScoutingApp_2.0/bizScouting.html'
+    '/ScoutingApp2022/',
+    '/ScoutingApp2022/index.html',
+    '/ScoutingApp2022/main.html',
+    '/ScoutingApp2022/summary.html',
+    '/ScoutingApp2022/Css/summary.css',
+    '/ScoutingApp2022/Css/index.css',
+    '/ScoutingApp2022/Css/main.css',
+    '/ScoutingApp2022/JS/index.js',
+    '/ScoutingApp2022/pitScouting.html',
+    '/ScoutingApp2022/planetPrimus.html',
+    '/ScoutingApp2022/Css/pitScouting.css',
+    '/ScoutingApp2022/JS/registration.js',
+    '/ScoutingApp2022/JS/summary.js',
+    '/ScoutingApp2022/missionHome.html',
+    '/ScoutingApp2022/database-info.txt',
+    '/ScoutingApp2022/Css/missionHome.css',
+    '/ScoutingApp2022/JS/missionHome.js',
+    '/ScoutingApp2022/help.html',
+    '/ScoutingApp2022/JS/getTBA.js',
+    '/ScoutingApp2022/background.png',
+    '/ScoutingApp2022/bizScouting.html'
 ];
 
 // Calling the Install Event
